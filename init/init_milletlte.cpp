@@ -43,16 +43,39 @@ using android::base::GetProperty;
 using android::init::property_set;
 
 
-void gsm_properties()
+void connect_properties(network, type)
 {
-    property_set("ro.telephony.default_network", "3");
-    property_set("telephony.lteOnGsmDevice", "0");
-}
-
-void wifi_only_properties()
-{
-    property_set("ro.carrier", "wifi-only");
-    property_set("ro.radio.noril", "1");
+    if (network =="GSM") {
+         /* GSM */
+         if (type == "3G") {
+            property_set("ro.telephony.default_network", "3");
+            property_set("telephony.lteOnGsmDevice", "0");
+        } else if (network =="LTE") {
+            property_set("ro.telephony.default_network", "9");
+            property_set("telephony.lteOnGsmDevice", "1");
+        }
+    } else if (network =="cdma") {
+         /* CDMA */            
+        if (network =="LTE") {
+            property_set("ro.telephony.default_network", "9");
+            property_set("telephony.lteOnGsmDevice", "1");
+        } else {
+            property_set("ro.telephony.default_network", "3");
+            property_set("telephony.lteOnGsmDevice", "0");
+        }
+    } else if (network =="wcdma") {
+         /* WCDMA */
+        if (network =="LTE") {
+            property_set("ro.telephony.default_network", "9");
+            property_set("telephony.lteOnGsmDevice", "1");
+        } else {
+            property_set("ro.telephony.default_network", "3");
+            property_set("telephony.lteOnGsmDevice", "0");
+        }
+    } else  {
+        /* WiFi Only */
+        property_set("ro.carrier", "wifi-only");
+        property_set("ro.radio.noril", "1");
 }
 
 void init_target_properties()
@@ -69,7 +92,7 @@ void init_target_properties()
         property_override("ro.product.model", "SM-T330");
         property_override("ro.product.name", "milletwifi");
         property_override("ro.product.device", "milletwifi");
-        wifi_only_properties();
+        connect_properties("", "");
     } else if (bootloader.find("T330XX") == 0) {
         /* milletwifixx */
         property_override("ro.build.fingerprint", "samsung/milletwifixx/milletwifi:5.0.2/LRX22G/T330XXU1BOJ4:user/release-keys");
@@ -77,7 +100,7 @@ void init_target_properties()
         property_override("ro.product.model", "SM-T330");
         property_override("ro.product.name", "milletwifi");
         property_override("ro.product.device", "milletwifi");
-        wifi_only_properties();
+        connect_properties("", "");
     } else if (bootloader.find("T331XX") == 0) {
         /* milletltetmo */
         property_override("ro.build.fingerprint", "samsung/millet3gxx/millet3g:5.0.2/LRX22G/T331XXU1BOD8:user/release-keys");
@@ -85,7 +108,7 @@ void init_target_properties()
         property_override("ro.product.model", "SM-T331");
         property_override("ro.product.name", "millet3g");
         property_override("ro.product.device", "millet3g");
-        gsm_properties();
+        connect_properties("GSM", "3G");
     } else if (bootloader.find("T335XX") == 0) {
         /* milletltexx */
         property_override("ro.build.fingerprint", "samsung/milletltexx/milletlte:5.0.2/LRX22G/T335XXU1BOD8:user/release-keys");
@@ -93,7 +116,7 @@ void init_target_properties()
         property_override("ro.product.model", "SM-T335");
         property_override("ro.product.name", "milletlte");
         property_override("ro.product.device", "milletlte");
-        gsm_properties();
+        connect_properties("GSM", "LTE");
     } else if (bootloader.find("T337T") == 0) {
         /* milletltetmo */
         property_override("ro.build.fingerprint", "samsung/milletltetmo/milletltetmo:5.1.1/LMY47X/T337TUVS1CPL1:user/release-keys");
@@ -101,9 +124,9 @@ void init_target_properties()
         property_override("ro.product.model", "SM-T337T");
         property_override("ro.product.name", "milletltetmo");
         property_override("ro.product.device", "milletltetmo");
-        gsm_properties();
-    }
-        gsm_properties();
+        connect_properties("GSM", "LTE");
+    } else {
+        connect_properties("GSM", "3G");
     }
 
     std::string device = GetProperty("ro.product.device", "");
