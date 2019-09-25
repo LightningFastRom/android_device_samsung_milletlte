@@ -43,32 +43,38 @@ using android::base::GetProperty;
 using android::init::property_set;
 
 
-void connect_properties(network, type)
+void connect_properties(std::string network, std::string type)
 {
     if (network =="GSM") {
          /* GSM */
          if (type == "3G") {
+            /* 3G */
             property_set("ro.telephony.default_network", "3");
             property_set("telephony.lteOnGsmDevice", "0");
         } else if (network =="LTE") {
+            /* LTE */
             property_set("ro.telephony.default_network", "9");
             property_set("telephony.lteOnGsmDevice", "1");
         }
     } else if (network =="cdma") {
          /* CDMA */            
         if (network =="LTE") {
+            /* LTE */
             property_set("ro.telephony.default_network", "9");
             property_set("telephony.lteOnGsmDevice", "1");
         } else {
+            /* 3G */
             property_set("ro.telephony.default_network", "3");
             property_set("telephony.lteOnGsmDevice", "0");
         }
     } else if (network =="wcdma") {
          /* WCDMA */
         if (network =="LTE") {
+            /* LTE */
             property_set("ro.telephony.default_network", "9");
             property_set("telephony.lteOnGsmDevice", "1");
         } else {
+            /* 3G */
             property_set("ro.telephony.default_network", "3");
             property_set("telephony.lteOnGsmDevice", "0");
         }
@@ -76,6 +82,7 @@ void connect_properties(network, type)
         /* WiFi Only */
         property_set("ro.carrier", "wifi-only");
         property_set("ro.radio.noril", "1");
+	}
 }
 
 void init_target_properties()
