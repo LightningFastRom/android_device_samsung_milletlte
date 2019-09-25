@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# inherit from common milletl
+# inherit from common millet
 include device/samsung/millet-common/BoardConfigCommon.mk
 
 # Assert
