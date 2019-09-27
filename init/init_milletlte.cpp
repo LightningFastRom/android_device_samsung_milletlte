@@ -94,38 +94,43 @@ void init_target_properties()
     std::string bootloader = GetProperty("ro.bootloader", "");
     if (bootloader.find("T330NU") == 0) {
         /* milletwifixx */
-        property_override_dual("ro.build.fingerprint", "samsung/milletwifixx/milletwifi:5.0.2/LRX22G/T330XXU1BOJ4:user/release-keys");
-        property_override("ro.build.description", "milletwifixx-user 5.0.2 LRX22G T330XXU1BOJ4 release-keys");
-        property_override_dual("ro.product.model", "SM-T330");
-        property_override_dual("ro.product.device", "milletwifi");
+        property_override("ro.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/milletwifixx/milletwifi:5.0.2/LRX22G/T330XXU1BOJ4:user/release-keys");
+        property_override("ro.build.description", "ro.vendor.build.description", "milletwifixx-user 5.0.2 LRX22G T330XXU1BOJ4 release-keys");
+        property_override("ro.product.model", "SM-T330");
+        property_override("ro.product.name", "ro.vendor.name", "milletwifi");
+        property_override("ro.product.device", "ro.vendor.device", "milletwifi");
         connect_properties("", "");
     } else if (bootloader.find("T330XX") == 0) {
         /* milletwifixx */
-        property_override_dual("ro.build.fingerprint", "samsung/milletwifixx/milletwifi:5.0.2/LRX22G/T330XXU1BOJ4:user/release-keys");
-        property_override("ro.build.description", "milletwifixx-user 5.0.2 LRX22G T330XXU1BOJ4 release-keys");
-        property_override_dual("ro.product.model", "SM-T330");
-        property_override_dual("ro.product.device", "milletwifi");
+        property_override("ro.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/milletwifixx/milletwifi:5.0.2/LRX22G/T330XXU1BOJ4:user/release-keys");
+        property_override("ro.build.description", "ro.vendor.build.description", "milletwifixx-user 5.0.2 LRX22G T330XXU1BOJ4 release-keys");
+        property_override("ro.product.model", "SM-T330");
+        property_override("ro.product.name", "ro.vendor.name", "milletwifi");
+        property_override("ro.product.device", "ro.vendor.device", "milletwifi");
         connect_properties("", "");
     } else if (bootloader.find("T331XX") == 0) {
         /* milletltetmo */
-        property_override_dual("ro.build.fingerprint", "samsung/millet3gxx/millet3g:5.0.2/LRX22G/T331XXU1BOD8:user/release-keys");
-        property_override("ro.build.description", "millet3gxx-user 5.0.2 LRX22G T331XXU1BOD8 release-keys");
-        property_override_dual("ro.product.model", "SM-T331");
-        property_override_dual("ro.product.device", "millet3g");
+        property_override("ro.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/millet3gxx/millet3g:5.0.2/LRX22G/T331XXU1BOD8:user/release-keys");
+        property_override("ro.build.description", "ro.vendor.build.description", "millet3gxx-user 5.0.2 LRX22G T331XXU1BOD8 release-keys");
+        property_override("ro.product.model", "SM-T331");
+        property_override("ro.product.name", "ro.vendor.name", "millet3g");
+        property_override("ro.product.device", "ro.vendor.device", "millet3g");
         connect_properties("GSM", "3G");
     } else if (bootloader.find("T335XX") == 0) {
         /* milletltexx */
-        property_override_dual("ro.build.fingerprint", "samsung/milletltexx/milletlte:5.0.2/LRX22G/T335XXU1BOD8:user/release-keys");
-        property_override("ro.build.description", "milletltexx-user 5.0.2 LRX22G T335XXU1BOD8 release-keys");
-        property_override_dual("ro.product.model", "SM-T335");
-        property_override_dual("ro.product.device", "milletlte");
+        property_override("ro.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/milletltexx/milletlte:5.0.2/LRX22G/T335XXU1BOD8:user/release-keys");
+        property_override("ro.build.description", "ro.vendor.build.description", "milletltexx-user 5.0.2 LRX22G T335XXU1BOD8 release-keys");
+        property_override("ro.product.model", "SM-T335");
+        property_override("ro.product.name", "ro.vendor.name", "milletlte");
+        property_override("ro.product.device", "ro.vendor.device", "milletlte");
         connect_properties("GSM", "LTE");
     } else if (bootloader.find("T337T") == 0) {
         /* milletltetmo */
-        property_override_dual("ro.build.fingerprint", "samsung/milletltetmo/milletltetmo:5.1.1/LMY47X/T337TUVS1CPL1:user/release-keys");
-        property_override("ro.build.description", "milletltetmo-user 5.1.1 LMY47X T337TUVS1CPL1 release-keys");
-        property_override_dual("ro.product.model", "SM-T337T");
-        property_override_dual("ro.product.device", "milletltetmo");
+        property_override("ro.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/milletltetmo/milletltetmo:5.1.1/LMY47X/T337TUVS1CPL1:user/release-keys");
+        property_override("ro.build.description", "ro.vendor.build.description", "milletltetmo-user 5.1.1 LMY47X T337TUVS1CPL1 release-keys");
+        property_override("ro.product.model", "SM-T337T");
+        property_override("ro.product.name", "ro.vendor.name", "milletltetmo");
+        property_override("ro.product.device", "ro.vendor.device", "milletltetmo");
         connect_properties("GSM", "LTE");
     } else {
         connect_properties("GSM", "3G");
