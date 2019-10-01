@@ -21,19 +21,8 @@ TARGET_OTA_ASSERT_DEVICE := milletlte, milletltetmo, milletltexx
 
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1866465280
 
-# Shims
-#TARGET_LD_SHIM_LIBS += \
-#        /system/vendor/lib/libmmcamera_imx175.so|libshim_imx175.so
-
 # Kernel
 TARGET_KERNEL_CONFIG := lineage_milletlte_defconfig
-
-# Init
-TARGET_INIT_VENDOR_LIB := libinit_msm8226
-TARGET_LIBINIT_MSM8226_DEFINES_FILE := device/samsung/milletlte/init/init_milletlte.cpp
-
-# NFC
-# include $(COMMON_PATH)/nfc/pn547/board.mk
 
 # Radio/RIL
 include $(COMMON_PATH)/radio/single/board.mk
