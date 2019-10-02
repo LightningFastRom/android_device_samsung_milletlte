@@ -24,6 +24,10 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1866465280
 # Kernel
 TARGET_KERNEL_CONFIG := lineage_milletlte_defconfig
 
+# Radio
+BOARD_PROVIDES_LIBRIL := true
+TARGET_RIL_VARIANT := caf
+
 # Radio/RIL
 include $(COMMON_PATH)/radio/single/board.mk
 
