@@ -17,7 +17,7 @@
 include device/samsung/millet-common/BoardConfigCommon.mk
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := milletlte, milletltetmo, milletltexx
+TARGET_OTA_ASSERT_DEVICE := milletlte,milletltetmo,milletltexx
 
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1866465280
 
