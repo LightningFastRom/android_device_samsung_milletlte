@@ -34,3 +34,6 @@ PRODUCT_PACKAGES += \
 
 # common millet
 $(call inherit-product, device/samsung/millet-common/millet.mk)
+
+# opengapps
+$(call inherit-product, vendor/Gapps-Preloader/opengapps.mk)
