@@ -32,6 +32,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libsecnativefeature
 
+# Ramdisk
+PRODUCT_PACKAGES += \
+    init.ril.sh
+
 # common millet
 $(call inherit-product, device/samsung/millet-common/millet.mk)
 
