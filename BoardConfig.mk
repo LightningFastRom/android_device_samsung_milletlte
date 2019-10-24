@@ -21,6 +21,9 @@ TARGET_OTA_ASSERT_DEVICE := milletlte,milletltetmo,milletltexx
 
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1866465280
 
+TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
+    /system/vendor/bin/hw/rild=27
+
 # Kernel
 TARGET_KERNEL_CONFIG := lineage_milletlte_defconfig
 
